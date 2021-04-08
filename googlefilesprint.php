@@ -20,11 +20,12 @@ function GDriveCourses()
     $courseId = $COURSE->id;
     $courseName = $COURSE->fullname;
     $folderId = $COURSE->idnumber;
-    /*'fields' => "nextPageToken, files(contentHints/thumbnail,fileExtension,iconLink,id,name,size,thumbnailLink,webContentLink,webViewLink,mimeType,parents)",*/
+    
     $optParams = array(
         'fields' => "nextPageToken, files(id,name, size, webViewLink, fileExtension)",
         'q' => "'" . $folderId . "' in parents",
     );
+    
     $results1 = $service1->files->listFiles($optParams);
     $resultlist = [];
     $resultlistmp4 = [];
